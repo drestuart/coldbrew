@@ -25,5 +25,16 @@ def greet():
         <p><a href="%s">Back to start</a></p>
         """ % (greeting, request.form["person"], url_for('hello_person'))
         
+def shutdown_server():
+    func = request.environ.get('werkzeug.server.shutdown')
+    if func is None:
+        raise RuntimeError('Not running with the Werkzeug Server')
+    func()
+
+@app.route('/shutdown', methods=['GET'])
+def shutdown():
+    shutdown_server()
+    return 'Server shutting down...'
+        
 if __name__ == '__main__': 
     app.run(debug=True)
