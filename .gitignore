@@ -1,3 +1,7 @@
-# Byte-compiled / optimized / DLL files 
+# Byte-compiled / optimized / DLL files
 _pycache__
 *.py[cod]
+
+# Eclipse
+.project
+.pydevproject
