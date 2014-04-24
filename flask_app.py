@@ -1,7 +1,11 @@
-from flask import Flask, request, url_for
+from flask import Flask, request, url_for, render_template
 import random
+# from flask.ext.script import Manager
+from flask.ext.bootstrap import Bootstrap
 
 app = Flask(__name__)
+# manager = Manager(app)
+bootstrap = Bootstrap(app)
 app.secret_key = 'This is really unique and secret'
 
 @app.route('/')
@@ -20,3 +24,6 @@ def greet():
         <p>%s, %s!</p>
         <p><a href="%s">Back to start</a></p>
         """ % (greeting, request.form["person"], url_for('hello_person'))
+        
+if __name__ == '__main__': 
+    app.run(debug=True)
