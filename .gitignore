@@ -5,3 +5,6 @@ _pycache__
 # Eclipse
 .project
 .pydevproject
+
+# Macintosh
+.DS_Store
