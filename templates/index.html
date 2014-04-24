@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+<link rel="stylesheet" type="text/css" href="/static/css/base.css">
+
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Hello World!</h1>
+</div>
+<p><a href="{{url_for('about')}}">About</a></p>
+{% endblock %}
