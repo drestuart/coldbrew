@@ -12,3 +12,7 @@ div.container, div.navbar {
 div.page_content {
 	background: white;
 }
+
+.nav a:hover {
+	/*font-weight:bold;*/
+}

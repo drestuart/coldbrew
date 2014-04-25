@@ -20,6 +20,14 @@ def index():
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+@app.route('/resume')
+def resume():
+    return render_template('resume.html')
+
+@app.route('/eriu')
+def eriu():
+    return render_template('eriu.html')
         
 def shutdown_server():
     func = request.environ.get('werkzeug.server.shutdown')
