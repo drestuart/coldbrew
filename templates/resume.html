@@ -1,17 +1,20 @@
 {% extends "base.html" %}
 
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/resume.css') }}">
+{% endblock %}
+
 {% block page_content %}
 <div class="page-header">
-    <h1>Resume!</h1>
+    <h1>Software Engineer</h1>
 </div>
 
-<h2>Software Engineer</h2>
-<div>
+<div class="section-head">
+	<h2>Core Competencies</h2>
 </div>
-
-<h2>Core Competencies</h2>
-<div>
-	<ul>
+<div class="section">
+	<ul id="qualifications">
 		<li>Disseminate Complex Language</li>
 		<li>Expert in Software Programming and User Interface Design</li>
 		<li>Human/Computer Interaction</li>
@@ -31,18 +34,56 @@
 	</ul>
 </div>
 
-<h2>Professional Experience</h2>
-<div>
-	<p><span class="workplace">2011 to 2013: University of Michigan Comprehensive Cancer Center — Informatics Division, Ann Arbor, MI</span></p>
-	<p><span class="jobtitle">Application Programmer/Analyst Associate – 2012 to 2013</span></p>
-	<p><span class="jobtitle">Intern/Research Assistant – 2011</span></p>
-	<ul>
+<div class="section-head">
+	<h2>Professional Experience</h2>
+</div>
+<div class="section">
+	<p><span class="dates">2011 to 2013</span></p>
+	<p><span class="workplace">University of Michigan Comprehensive Cancer Center — Informatics Division, Ann Arbor, MI</span></p>
+	<p><span class="jobtitle">Application Programmer/Analyst Associate &ndash; 2012 to 2013<br>
+		Intern/Research Assistant &ndash; 2011</span></p>
+	<ul class="jobdesc">
 		<li>Perform programming and debugging of front and back end Web applications development and database functionality utilizing Java with Spring framework and Tomcat 6 Web server, supporting data sharing and security for CORECT consortium comprised of 30 users.</li>
 		<li>Implement data warehouse applications that include setup, monitoring and debugging of database, Web applications and ETL scripts.</li>
 		<li>Completed various small Web application programming projects and application upgrade projects for small jsp-based applications for robust scalable Web applications with improved functionality and available database storage.</li>
 	</ul>
 
-	
+	<p><span class="dates">2007 to 2011</span></p>
+	<p><span class="workplace">University of Michigan Physics Department, Ann Arbor, MI</span></p>
+	<p><span class="jobtitle">Introductory Lab GSI</span></p>
+	<ul class="jobdesc">
+		<li>Provided training and assistance to undergraduate Mechanics and Electricity &amp; Magnetism laboratories for engineering majors. Developed supplemental lectures for calculus-based physics classes that ensured understanding of physical principles and provided one-on-one assistance in Physics help room tutoring.</li>
+	</ul>
+
+	<p><span class="dates">2010</span></p>
+	<p><span class="workplace">U.S. Environmental Protection Agency &ndash; Office of Transportation and Air Quality</span></p>
+	<p><span class="jobtitle">Intern</span></p>
+	<ul class="jobdesc">
+		<li>Participated in project designed to deliver efficiency improvements to the MOVES vehicle emission simulator; emulated application functionality from Java to C++, focused on improving efficiencies of MySQL database access.</li>
+		<li>Developed efficiency enhancements to the MOVES vehicle emission simulator and ensured MySQL database access, performed with efficiency and ensured continued connectivity and data security measures were implemented.</li>
+	</ul>
 </div>
 
+<div class="section-head">
+	<h2>Sampling Of Completed Projects</h2>
+</div>
+<div class="section">
+	<ul>
+		<li class="project"><span class="project_title">CORECT Web Application</span> &ndash; Design/implementation of feature improvements that assisted cancer researches share/tag genetic data.</li>
+		<li class="project"><span class="project_title">Open-source tranSMART Application</span> &ndash; Implemented clinical data warehouse based application on i2b2 for data storage and export for CORECT consortium.</li>
+		<li class="project"><span class="project_title">PAT (Publication Attribution Tool) Web Application</span> &ndash; Designed/developed significant improvements for survey site for medication researchers to attribute research assistance received.</li>
+		<li class="project"><span class="project_title">Text-to-speech Interface to Google Search (Voogle)</span> &ndash; Designed, developed and user-tested prototype.</li>
+	</ul>
+</div>
+
+<div class="section-head">
+	<h2>Education and Publications</h2>
+</div>
+<div id="ed" class="section">
+	<p>University of Michigan, Ann Arbor, MI</p>
+	<p><span class="degree">M.S., Information / Human-Computer Interaction &ndash; Information Analysis &amp; Retrieval &ndash; 2011 │ M.S., Physics &ndash; 2009</span></p>
+	<p><span class="degree">B.S., Physics</span> &ndash; University of California/College of Creative Studies, Santa Barbara, CA &ndash; 2006</p>
+
+	<p><i>Stuart, D. et al. (2012, November). Use of tranSMART to Support a Post-GWAS Data Coordinating Center. Poster session presented at AMIA 2012, the annual symposium of the American Medical Informatics Association</i></p>
+</div>
 {% endblock %}

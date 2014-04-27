@@ -1,0 +1,63 @@
+h1 {
+	font-variant:small-caps;
+}
+
+h2 {
+	font-size: 22px;
+	margin: 0;
+	font-variant:small-caps;
+}
+
+li {
+	list-style-type: none;
+}
+
+div.section-head {
+	background-color: #eee;
+	border-bottom: 1px solid black;
+	padding: 10px;
+	width: 700px;
+	margin: 0;
+	left: -15px;
+	position: relative;
+}
+
+div.section {
+	margin-top: 10px;
+}
+
+ul#qualifications li {
+}
+
+span.dates {
+	font-weight: bold;
+}
+
+span.workplace {
+
+}
+
+span.jobtitle {
+
+}
+
+ul.jobdesc {
+	margin-bottom: 15px;
+}
+
+ul.jobdesc li {
+	margin-bottom: 10px;
+}
+
+span.project_title {
+	font-weight: bold;
+}
+
+li.project {
+	margin-left: -15px;
+	margin-bottom: 10px;
+}
+
+div#ed {
+	text-align: center;
+}

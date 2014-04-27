@@ -1,8 +1,8 @@
 body {
-	background: #eee;
+	background: #aaa;
 }
 
-div.container, div.navbar {
+div.page_content, div.navbar {
 	width: 700px;
 	margin: 0;
 	margin-left: auto;
@@ -10,7 +10,10 @@ div.container, div.navbar {
 }
 
 div.page_content {
+	margin-bottom: 30px;
 	background: white;
+	border-bottom-right-radius:10px;
+	border-bottom-left-radius:10px;
 }
 
 .nav a:hover {
