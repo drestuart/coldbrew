@@ -8,3 +8,6 @@ _pycache__
 
 # Macintosh
 .DS_Store
+
+# Config
+.cfg

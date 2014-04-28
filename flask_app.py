@@ -1,12 +1,16 @@
+
 from flask import Flask, request, url_for, render_template
 import random
-# from flask.ext.script import Manager
+import ConfigParser
 from flask.ext.bootstrap import Bootstrap
 
 app = Flask(__name__)
 # manager = Manager(app)
 bootstrap = Bootstrap(app)
 app.secret_key = 'This is really unique and secret'
+
+config = ConfigParser.SafeConfigParser()
+config.read('coldbrew.cfg')
 
 @app.route('/')
 def index():
@@ -35,10 +39,11 @@ def shutdown_server():
         raise RuntimeError('Not running with the Werkzeug Server')
     func()
 
-@app.route('/shutdown', methods=['GET'])
-def shutdown():
-    shutdown_server()
-    return 'Server shutting down...'
+if config.getboolean('Controls', 'shutdown'):
+    @app.route('/shutdown', methods=['GET'])
+    def shutdown():
+        shutdown_server()
+        return 'Server shutting down...'
         
 if __name__ == '__main__': 
     app.run(debug=True)
