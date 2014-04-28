@@ -10,4 +10,4 @@ _pycache__
 .DS_Store
 
 # Config
-.cfg
+*.cfg
