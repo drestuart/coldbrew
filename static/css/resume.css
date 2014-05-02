@@ -24,9 +24,7 @@ div.section-head {
 
 div.section {
 	margin-top: 10px;
-}
-
-ul#qualifications li {
+	text-align: justify;
 }
 
 span.dates {
@@ -34,30 +32,41 @@ span.dates {
 }
 
 span.workplace {
-
+	font-weight: bold;
 }
 
 span.jobtitle {
-
+	font-style: italic;
 }
 
-ul.jobdesc {
+ul.jobdesc, ul.projects, ul#qualifications {
 	margin-bottom: 15px;
+	padding-left: 25px;
 }
 
-ul.jobdesc li {
+ul.jobdesc li, li.project {
 	margin-bottom: 10px;
+	border-left: 2px solid #888;
+	padding-left: 5px;
+	
+}
+
+ul#qualifications li {
+	/*border-left: 2px solid #888;*/
+	padding-left: 5px;
 }
 
 span.project_title {
 	font-weight: bold;
 }
 
-li.project {
-	margin-left: -15px;
-	margin-bottom: 10px;
+div#ed {
 }
 
-div#ed {
-	text-align: center;
+div#ed span.degree {
+	padding-left: 30px;
+}
+
+span.school{
+	font-weight: bold;
 }

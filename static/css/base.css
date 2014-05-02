@@ -9,6 +9,15 @@ div.page_content, div.navbar {
 	margin-right: auto;
 }
 
+div.navbar > div.container {
+	width: 700px;
+	padding-right: 0;
+}
+
+div.navbar > div.container div {
+	padding: 0;
+}
+
 div.page_content {
 	margin-bottom: 30px;
 	background: white;
@@ -17,4 +26,8 @@ div.page_content {
 }
 
 .nav a:hover {
+}
+
+.navbar-nav {
+	float: right;
 }
