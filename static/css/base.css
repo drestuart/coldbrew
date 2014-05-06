@@ -1,5 +1,7 @@
 body {
-	background: #aaa;
+	/*background: #aaa;*/
+	background-color: rgb(2, 53, 87);
+
 }
 
 div.page_content, div.navbar, div.banner {
@@ -9,8 +11,15 @@ div.page_content, div.navbar, div.banner {
 	margin-right: auto;
 }
 
+div.banner {
+}
+
 div.banner img {
 	width: 100%;
+}
+
+div.navbar {
+	border-radius: 25px 25px 0 0;
 }
 
 div.navbar > div.container {
@@ -25,13 +34,36 @@ div.navbar > div.container div {
 div.page_content {
 	margin-bottom: 30px;
 	background: white;
-	border-bottom-right-radius:10px;
-	border-bottom-left-radius:10px;
+	border-radius: 0 0 25px 25px;
 }
 
 .nav a:hover {
 }
 
-.navbar-nav {
+ul.navbar-nav {
 	float: right;
+	padding-right: 10px;
+}
+
+a.navbar-brand {
+	font-size: 20px;
+}
+
+ul.navbar-nav li {
+	font-size: 16px;
+	margin: 0 5px;
+	width: 80px;
+	text-align: center;
+}
+
+div.footer {
+	background-color: #eee;
+	border-top: 1px solid black;
+	padding: 10px;
+	width: 700px;
+	margin: 30px 0 0 0;
+	left: -15px;
+	position: relative;
+	border-radius: 0 0 25px 25px;
+	text-align: center;
 }

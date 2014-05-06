@@ -15,11 +15,11 @@
 
 {% block navbar %}
 
-{% block banner %}
-<div class="banner">
-    <a href="/"><img src="{{ url_for('static', filename='img/banner.png') }}"/></a>
-</div>
-{% endblock %}
+    {% block banner %}
+    <div class="banner">
+        <a href="/"><img src="{{ url_for('static', filename='img/banner.png') }}"/></a>
+    </div>
+    {% endblock %}
 <div class="navbar navbar-inverse" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -41,10 +41,17 @@
 </div>
 {% endblock %}
 
-
-
 {% block content %}
 <div class="container page_content">
-    	{% block page_content %}{% endblock %}
+    {% block page_content %}{% endblock %}
+
+    {% block footer %}
+        <div class="footer">
+            <p>&copy; 2014 Coldbrew Games and Dan Stuart. All rights reserved.</p>
+        </div>
+    {% endblock %}
 </div>
+
+
 {% endblock %}
+
