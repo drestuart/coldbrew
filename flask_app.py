@@ -22,19 +22,15 @@ class IndexController(object):
             self.config.read(self.filepath)
     
     def index(self):
-        self.readConfig()
         return render_template('index.html')
     
     def about(self):
-        self.readConfig()
         return render_template('about.html')
     
     def resume(self):
-        self.readConfig()
         return render_template('resume.html')
     
     def eriu(self):
-        self.readConfig()
         return render_template('eriu.html')
     
     def shutdown_server(self):
@@ -44,7 +40,6 @@ class IndexController(object):
         func()
     
     def shutdown(self):
-        self.readConfig()
         if self.config.getboolean('Controls', 'shutdown'):
             self.shutdown_server()
             return 'Server shutting down...'
@@ -52,6 +47,10 @@ class IndexController(object):
 
 c = IndexController()
 
+@app.before_first_request
+def config_read():
+    c.readConfig()
+    
 @app.route('/')
 def index():
     return c.index()
