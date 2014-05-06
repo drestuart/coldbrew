@@ -1,4 +1,10 @@
 {% extends "bootstrap/base.html" %}
+{% import "bootstrap/google.html" as google %}
+
+{% block scripts %}
+    {{super()}}
+    {{google.analytics(account="UA-50706127-1")}}
+{% endblock %}
 
 {% block title %}Coldbrew Games{% endblock %}
 
@@ -8,9 +14,12 @@
 {% endblock %}
 
 {% block navbar %}
+
+{% block banner %}
 <div class="banner">
     <a href="/"><img src="{{ url_for('static', filename='img/banner.png') }}"/></a>
 </div>
+{% endblock %}
 <div class="navbar navbar-inverse" role="navigation">
     <div class="container">
         <div class="navbar-header">
