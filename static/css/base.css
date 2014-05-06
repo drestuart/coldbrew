@@ -2,11 +2,15 @@ body {
 	background: #aaa;
 }
 
-div.page_content, div.navbar {
+div.page_content, div.navbar, div.banner {
 	width: 700px;
 	margin: 0;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+div.banner img {
+	width: 100%;
 }
 
 div.navbar > div.container {
