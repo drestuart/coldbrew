@@ -1,7 +1,7 @@
 body {
 	/*background: #aaa;*/
 	background-color: rgb(2, 53, 87);
-
+	font-family: Verdana, Helvetica, Arial, sans-serif;
 }
 
 div.page_content, div.navbar, div.banner {
@@ -9,6 +9,10 @@ div.page_content, div.navbar, div.banner {
 	margin: 0;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+li {
+	list-style-type: none;
 }
 
 div.banner {
@@ -40,7 +44,30 @@ div.page_content {
 .nav a:hover {
 }
 
-div.page-header h1 {
+div.page-header {
+	border-bottom: 1px solid #666;
+}
+
+div.page-body div.section-head {
+	background-color: #eee;
+	border-bottom: 1px solid black;
+	padding: 10px;
+	width: 700px;
+	margin: 0 0 15px 0;
+	left: -15px;
+	position: relative;
+}
+
+div.page-body div.section {
+	text-align: justify;
+}
+
+div.page-body div.subsection p {
+	margin-left: 15px;
+}
+
+div.page-body div.section-head h2 {
+	margin: 0;
 }
 
 ul.navbar-nav {
@@ -72,10 +99,21 @@ div.footer {
 	clear: both;
 }
 
-img#sexyface {
+img.left, img.right {
 	float: left;
 	width: 300px;
 	margin-right: 10px;
 	margin-bottom: 20px;
 }
 
+img.left {
+	float: left;
+}
+
+img.right {
+	float: right;
+}
+
+img.full_width {
+	width: 100%;
+}

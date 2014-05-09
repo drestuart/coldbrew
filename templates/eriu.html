@@ -1,7 +1,56 @@
 {% extends "base.html" %}
 
+{% block title %}Chronicles of Ériu &mdash; Coldbrew Games{% endblock %}
+
 {% block page_content %}
 <div class="page-header">
-    <h1>Ériu!</h1>
+    <img id="eriu_title" class="full_width" src="{{ url_for('static', filename='img/eriu.png') }}" alt="Chronicles of Ériu"/>
 </div>
+
+<div class="page-body">
+	<p>A low-magic roguelike RPG in an anachronistic ancient Irish setting.</p>
+
+	<div class="section-head">
+		<h2>The Land of Ériu</h2>
+	</div>
+	<div class="section">
+		<p>A civilization divided among the five warring kingdoms of men</p>
+		<p>An island inhabited by ancient powers</p>
+		<h3>Races of Ériu</h3>
+		<div class="subsection">
+			<h4>Men</h4>
+				<p>The kingdoms of men &mdash; Ulaid, Connacht, Leinster, Munster, and Mide &mdash; and thier gods are recent arrivals to Ériu, and have yet to eject the previous inhabitants. Compared to the other races, men breed, live, and die at a startling speed.</p>
+			<h4>Sidhe</h4>
+				<p>No one knows how or when the Fair Folk came to Ériu. They prefer to live hidden from the eyes of men, but have been known to play tricks or work charms on mortals &mdash; some harmless, some less so. The sidhe are roughly divided into the Seelie and Unseelie Courts, but the distinction is lost on outsiders.</p>
+			<h4>Fomoire</h4>
+				<p>The first rulers of Ériu, the Fomoire are said to be older than the land itself. Hideous giants, great in strength and skilled in dark, ancient magic, the Fomoire rival the Tuatha Dé themselves. Fortunately few remain in Ériu.</p>
+			<h4>Fir Bolg</h4>
+				<p>A monstrous race led by their king Eochaid, the Fir Bolg were driven from Ériu by the armies of men and the Tuatha Dé Danann. Some remained, however, and fled into the dark places of the land. The new king Sreng plots their return to power over their ancient homeland.</p>
+			<h4>Tuatha Dé Danann</h4>
+				<p>The Tuatha Dé, the gods of men, have rarely been seen since they displaced the Fir Bolg and vanquished the Fomoire.</p>
+		</div>
+	</div>
+
+	<div class="section-head">
+		<h2>Dynamic Quest System</h2>
+	</div>
+	<div class="section">
+		<p>Choose your path:</p>
+		<ul>
+			<li>Raise an army to destroy your enemies</li>
+			<li>Gain fame and wealth so that your name will live in legend</li>
+			<li>Lift an ancient curse from your family line</li>
+			<li>Travel to a holy site to work a great spell</li>
+		</ul>
+		<p>Use your fame and wealth to recruit NPCs to your cause.</p>
+		<p>As your power and reputation grow, new quests are unlocked to help you toward your ultimate goal.</p>
+		<p></p>
+	</div>
+
+
+
+</div>
+
+
+
 {% endblock %}
