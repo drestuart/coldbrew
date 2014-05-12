@@ -1,5 +1,5 @@
 
-from flask import Flask, request, url_for, render_template
+from flask import Flask, request, url_for, render_template, abort
 import random
 import ConfigParser
 from flask.ext.bootstrap import Bootstrap
@@ -66,6 +66,14 @@ def resume():
 @app.route('/eriu')
 def eriu():
     return c.eriu()
+
+@app.errorhandler(404) 
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    return render_template('500.html'), 500
 
 @app.route('/shutdown', methods=['GET'])
 def shutdown():
