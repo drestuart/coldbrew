@@ -2,6 +2,21 @@
 
 {% block page_content %}
 <div class="page-header">
-    <h1>Hello World!</h1>
+    <h1>Coldbrew Games</h1>
+</div>
+
+<div class="page-body">
+	<p>Home of &#8230;</p>
+	<div class="section-head">
+		<h2>Chronicles of Ériu</h2>
+	</div>
+	<div class="section">
+		<a href="/eriu"><img id="map" class="center" src="{{ url_for('static', filename='img/worldmap.jpg') }}" alt="eriu world map" title="Rivers, bitch"/></a>
+		<p>A story-based roguelike RPG set in ancient Ireland</p>
+	</div>
+	<div class="section-head">
+		<h2>And not much else.</h2>
+	</div>
+	<p>Yet.</p>
 </div>
 {% endblock %}
