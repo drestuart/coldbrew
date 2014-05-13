@@ -1,6 +1,9 @@
 body {
-	/*background: #aaa;*/
-	background-color: rgb(2, 53, 87);
+	background: -webkit-radial-gradient(rgba(2, 53, 87, 0.6), rgba(2, 53, 87, 1));
+	background: -o-radial-gradient(rgba(2, 53, 87, 0.6), rgba(2, 53, 87, 1));
+	background: -moz-radial-gradient(rgba(2, 53, 87, 0.6), rgba(2, 53, 87, 1));
+	background: radial-gradient(rgba(2, 53, 87, 0.6), rgba(2, 53, 87, 1));
+
 	font-family: Verdana, Helvetica, Arial, sans-serif;
 }
 
