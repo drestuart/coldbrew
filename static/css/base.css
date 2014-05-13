@@ -11,6 +11,10 @@ div.page_content, div.navbar, div.banner {
 	margin-right: auto;
 }
 
+.clear {
+	clear: both;
+}
+
 li {
 	list-style-type: none;
 }
@@ -116,4 +120,19 @@ img.right {
 
 img.full_width {
 	width: 100%;
+}
+
+div.sm_icons {
+	float: right;
+	padding: 0 10px;
+	display: inline-block;
+}
+
+div.sm_icons a img {
+	opacity: 0.4;
+	height: 28px;
+}
+
+div.sm_icons a:hover img {
+	opacity: 1;
 }

@@ -18,45 +18,19 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
 {% endblock %}
 
-{% block navbar %}
-
-{% block banner %}
-<div class="banner">
-    <a href="/"><img src="{{ url_for('static', filename='img/banner.png') }}" alt="colbrew logo"/></a>
-</div>
-{% endblock %}
-<div class="navbar navbar-inverse" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Home</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="{{ url_for('about') }}">About</a></li>
-                <li><a href="{{ url_for('eriu') }}">Ériu</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-{% endblock %}
-
 {% block content %}
 <div class="container page_content">
     {% block page_content %}{% endblock %}
 
     {% block footer %}
-        <div class="footer">
-            <p>&copy; 2014 Coldbrew Games and Dan Stuart. Coldbrew Games is me. All rights reserved.</p>
+    <div class="footer">
+        <div class="sm_icons">
+            <a href="https://www.facebook.com/pages/Coldbrew-Games/286609531504706" target="_blank"><img src="{{ url_for('static', filename='img/facebook.png') }}" alt=""/></a>
+            <a href="http://coldbrewgames.tumblr.com/" target="_blank"><img src="{{ url_for('static', filename='img/tumblr.png') }}" alt=""/></a>
         </div>
+        <p>&copy; 2014 Coldbrew Games and Dan Stuart. Coldbrew Games is me. <br>All rights reserved.</p>
+    </div>
     {% endblock %}
 </div>
-
-
 {% endblock %}
 
