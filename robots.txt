@@ -1,0 +1,7 @@
+#
+# robots.txt for https://www.coldbrewgames.com/
+#
+
+User-agent: *
+# Allow:
+Disallow: /resume
