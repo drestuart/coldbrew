@@ -68,6 +68,7 @@ div.page-body div.section-head {
 
 div.page-body div.section {
 	text-align: justify;
+	margin-bottom: 25px;
 }
 
 div.page-body div.subsection p {
@@ -107,19 +108,28 @@ div.footer {
 	clear: both;
 }
 
-img.left, img.right {
+img.left, img.right, figure.left, figure.right {
 	float: left;
 	width: 300px;
-	margin-right: 10px;
-	margin-bottom: 20px;
+	margin-right: 21px;
 }
 
-img.left {
+figure.left img, figure.right img {
+	width: 300px;
+}
+
+img.left, figure.left {
 	float: left;
 }
 
-img.right {
+img.right, figure.right {
 	float: right;
+}
+
+figcaption {
+	font-size: 12px;
+	text-align: center;
+	font-style: italic;
 }
 
 img.center {
