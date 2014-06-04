@@ -48,9 +48,6 @@ div.page_content {
 	border-radius: 0 0 25px 25px;
 }
 
-.nav a:hover {
-}
-
 div.page-header {
 	border-bottom: 1px solid #666;
 }
@@ -84,15 +81,18 @@ ul.navbar-nav {
 	padding-right: 10px;
 }
 
-a.navbar-brand {
-	font-size: 20px;
+ul.navbar-nav li {
+	margin: 0 5px;
+	width: 125px;
+	text-align: center;
 }
 
-ul.navbar-nav li {
+a.nav-link {
 	font-size: 16px;
-	margin: 0 5px;
-	width: 80px;
-	text-align: center;
+}
+
+a.nav-link.current {
+	font-size: 20px;
 }
 
 div.footer {
