@@ -76,6 +76,11 @@ div.page-body div.section-head h2 {
 	margin: 0;
 }
 
+div.page-body div.section-head h2 a {
+	text-decoration: none;
+	color: inherit;
+}
+
 ul.navbar-nav {
 	float: right;
 	padding-right: 10px;
