@@ -1,5 +1,5 @@
 #
-# robots.txt for https://www.coldbrewgames.com/
+# robots.txt for https://www.coldbrewsoftware.com/
 #
 
 User-agent: *
