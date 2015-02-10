@@ -11,34 +11,34 @@ bootstrap = Bootstrap(app)
 app.secret_key = 'This is really unique and secret'
 
 class IndexController(object):
-    
+
     def __init__(self):
         self.config = None
-    
+
     def readConfig(self):
         if not self.config:
             self.config = ConfigParser.SafeConfigParser()
             self.filepath = os.path.join(os.getcwd(), 'coldbrew.cfg')
             self.config.read(self.filepath)
-    
+
     def index(self):
         return render_template('index.html')
-    
+
     def about(self):
         return render_template('about.html')
-    
+
     def resume(self):
         return render_template('resume.html')
-    
+
     def eriu(self):
         return render_template('eriu.html')
-    
+
     def shutdown_server(self):
         func = request.environ.get('werkzeug.server.shutdown')
         if func is None:
             raise RuntimeError('Not running with the Werkzeug Server')
         func()
-    
+
     def shutdown(self):
         if self.config.getboolean('Controls', 'shutdown'):
             self.shutdown_server()
@@ -50,7 +50,7 @@ c = IndexController()
 @app.before_first_request
 def config_read():
     c.readConfig()
-    
+
 @app.route('/')
 def index():
     return c.index()
@@ -67,7 +67,11 @@ def resume():
 def eriu():
     return c.eriu()
 
-@app.errorhandler(404) 
+@app.route('/barracuda-site-verification-2d21942148aa9505b3db97c56407de97.html')
+def verification():
+    return '2d21942148aa9505b3db97c56407de97', 200
+
+@app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
 
