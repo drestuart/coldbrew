@@ -33,6 +33,9 @@ class IndexController(object):
     def eriu(self):
         return render_template('eriu.html')
 
+    def drtc(self, filename):
+        return render_template('DRTC/' + filename + '.html')
+
     def shutdown_server(self):
         func = request.environ.get('werkzeug.server.shutdown')
         if func is None:
@@ -71,7 +74,11 @@ def eriu():
 def verification():
     return '2d21942148aa9505b3db97c56407de97', 200
 
-@app.errorhandler(404)
+@app.route('/drtc/<filename>')
+def drtc(filename):
+    return c.drtc(filename)
+
+@app.errorhandler(404) 
 def page_not_found(e):
     return render_template('404.html'), 404
 
