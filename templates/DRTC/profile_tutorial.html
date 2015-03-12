@@ -1,0 +1,61 @@
+{% extends "coldbrew_base.html" %}
+
+{% block metas %}
+{{ super() }}
+<meta property="og:title" content="Don't Read The Comments!"/>
+<meta property="og:description" content="Don't Read The Comments!" />
+<meta property="og:url" content="http://www.coldbrewsoftware.com" />
+<meta property="og:image" content="http://www.coldbrewsoftware.com/static/img/avatar-consolas.png" />
+{% endblock %}
+
+{% block title %}Don't Read The Comments! &mdash; Coldbrew Software{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+  <img class="full_width" src="{{ url_for('static', filename='img/DRTC/pro-tile-marquee-2.png') }}">
+</div>
+<div class="page-body">
+  <h1>Creating a DRTC! Website Profile</h1>
+  <p>Creating a new website profile is not overly complicated, but requires using some advanced Chrome tools.</p>
+  <ul class="dot">
+    <li>Load the website you want to create the profile for, and find a page with comments.</li>
+    <li>Open the Chrome Developer Console with F12 (Windows, Linux) or Alt-Cmd-I (Mac).</li>
+  </ul>
+  <img class="full_width" src="{{ url_for('static', filename='img/DRTC/developer_console_open.png') }}">
+    <ul class="dot">
+    <li>Click the magnifying glass icon at the top-left to enter Inspect mode.</li>
+    <li>Highlight the comment section element as best you can one the page, and click it. This will highlight the corresponding HTML element in the Developer Console.</li>
+  </ul>
+  <img class="full_width" src="{{ url_for('static', filename='img/DRTC/inspect_mode.png') }}">
+  <ul class="dot">
+    <li>Explore the HTML elements around the selected element to choose the one that best matches the comment section.</li>
+    <li>Build the CSS selector that points to this element, and only this element. If the element has an id attribute, that id should be unique on the page, so you can use a <code>#</code> followed by the id. Here, the element's id is <code>watch-discussion</code>, so the correct selector is <code>#watch-discussion</code>. You can also see the element's CSS selector with its element type, id, and classes in the yellow box.</li>
+    <li>Open the page action, and click <strong>Enable</strong>.</li>
+  </ul>
+  <img class="center" src="{{ url_for('static', filename='img/DRTC/page_action_not_enabled.png') }}">
+  <ul class="dot">
+    <li>Enter your section selector in the <strong>Section Selector</strong> field, and click <strong>Save</strong>.</li>
+  </ul>
+  <img class="center" src="{{ url_for('static', filename='img/DRTC/page_action_enabled.png') }}">
+  <ul class="dot">
+    <li>The page will reload. The DRTC! cover element should be in place over the comment section. Make sure it covers the whole section, and only that section, and behaves correctly. If it doesn't you can select a new element and try again.</li>
+  </ul>
+  <img class="full_width" src="{{ url_for('static', filename='img/DRTC/section_hidden.png') }}">
+  <ul class="dot">
+    <li>Repeat the process to build a CSS selector for individual comments. This is slightly more complicated, as you want it to match more than one element, and only comment elements. If the comments have one or more class parameters, these are a good place to start.</li>
+  </ul>
+  <img class="full_width" src="{{ url_for('static', filename='img/DRTC/comment_inspect.png') }}">
+  <ul class="dot">
+    <li>Here, the element has many classes specified: <code>class="ve oba HPa"</code>. Classes are specified in a CSS selector using a <code>.</code> instead of a <code>#</code>. You can specify elements with more than one class by putting the classes together: <code>.ve.oba.HPa.</code></li>
+  </ul>
+  <img class="center" src="{{ url_for('static', filename='img/DRTC/page_action_comment.png') }}">
+  <ul class="dot">
+    <li>Save your comment selector in the page action, and set the mode to <strong>Individual</strong> to test it out.</li>
+  </ul>
+  <img class="full_width" src="{{ url_for('static', filename='img/DRTC/comments_partially_covered.png') }}">
+  <ul class="dot">
+    <li>In this case, our selector is only getting top-level comments, and no replies under them. Inspecting the replies shows that they have a different set of classes, <code>.Ik.Wv</code>. You can chain together multiple selectors with a comma <code>,</code>, so our final comment selector becomes <code>.ve.oba.HPa, .Ik.Wv</code>. This will get all comment elements on YouTube.</li>
+  </ul>
+  <img class="full_width" src="{{ url_for('static', filename='img/DRTC/all_comments_covered.png') }}">
+</div>
+{% endblock %}

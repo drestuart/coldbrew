@@ -33,7 +33,10 @@ class IndexController(object):
     def eriu(self):
         return render_template('eriu.html')
 
-    def drtc(self, filename):
+    def drtc(self):
+        return render_template('DRTC/drtc.html')
+
+    def drtc_page(self, filename):
         return render_template('DRTC/' + filename + '.html')
 
     def shutdown_server(self):
@@ -74,9 +77,13 @@ def eriu():
 def verification():
     return '2d21942148aa9505b3db97c56407de97', 200
 
+@app.route('/drtc')
+def drtc():
+    return c.drtc()
+
 @app.route('/drtc/<filename>')
-def drtc(filename):
-    return c.drtc(filename)
+def drtc_page(filename):
+    return c.drtc_page(filename)
 
 @app.errorhandler(404) 
 def page_not_found(e):
