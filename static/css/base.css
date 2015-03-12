@@ -77,7 +77,7 @@ div.page-body div.section-head {
 	position: relative;
 }
 
-div.page-body div.section {
+div.page-body p {
 	text-align: justify;
 	margin-bottom: 25px;
 }
@@ -129,6 +129,10 @@ div.footer {
 
 img {
 	border: 1px solid black;
+}
+
+a > img {
+	border: none;
 }
 
 img.left, img.right, figure.left, figure.right {
