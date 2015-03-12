@@ -14,7 +14,18 @@
 </div>
 
 <div class="page-body">
-	<p>Home of &#8230;</p>
+	<p>Home of my awesome side projects &mdash;</p>
+	<div class="section-head">
+		<h2><a href="/drtc" target="_blank">Don't Read The Comments!</a></h2>
+	</div>
+	<div class="section">
+		<a href="/drtc" target="_blank"><img class="full_width" src="{{ url_for('static', filename='img/DRTC/pro-tile-marquee-2.png') }}"></a>
+		<p><a href="/drtc" target="_blank">Don’t Read The Comments!</a> is a browser extension which hides comment sections.  It’s configurable to work with any site and comes with settings for many sites built-in. Beta versions are currently available for Chrome &mdash;</p>
+		<a href="https://chrome.google.com/webstore/detail/dont-read-the-comments/nlhmhpppjnlbdfgebinkgjiljipnejbe" target="_blank"><img class="center" src="{{ url_for('static', filename='img/DRTC/ChromeWebStore_Badge_v2_340x96.png') }}"></a>
+		<p>And Firefox &mdash;</p>
+		<a href="https://addons.mozilla.org/en-US/firefox/addon/dont-read-the-comments/" target="_blank"><img class="center" src="{{ url_for('static', filename='img/DRTC/firefox-logo.png') }}"></a>
+	</div>
+
 	<div class="section-head">
 		<h2><a href="/eriu">Chronicles of Ériu</a></h2>
 	</div>
@@ -23,9 +34,5 @@
 		<p>A low-magic roguelike RPG in the style of Irish legends.</p>
 		<a href="/eriu"><img id="map" class="center" src="{{ url_for('static', filename='img/worldmap.png') }}" alt="eriu world map" title="Rivers, bitch"/></a>
 	</div>
-	<div class="section-head">
-		<h2>And not much else.</h2>
-	</div>
-	<p>Yet.</p>
 </div>
 {% endblock %}
