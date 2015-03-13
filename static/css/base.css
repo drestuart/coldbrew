@@ -107,8 +107,15 @@ ul.navbar-nav {
 
 ul.navbar-nav li {
 	margin: 0 5px;
-	width: 125px;
+	width: 108px;
 	text-align: center;
+	border: 1px solid rgba(0,0,0,0);
+}
+
+ul.navbar-nav li:hover {
+	border: 1px solid #666;
+	border-top: 1px solid rgba(0,0,0,0);
+	border-bottom: 1px solid rgba(0,0,0,0);
 }
 
 a.nav-link {
