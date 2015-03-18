@@ -97,7 +97,11 @@ def internal_server_error(e):
 def shutdown():
     return c.shutdown()
 
-
+# GNU Terry Pratchett
+@app.after_request
+def gnu_terry_pratchett(resp):
+    resp.headers.add("X-Clacks-Overhead", "GNU Terry Pratchett")
+    return resp
 
 if __name__ == '__main__':
     app.run(debug=True)
