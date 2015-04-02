@@ -11,3 +11,4 @@ _pycache__
 
 # Config
 *.cfg
+secret_key.py

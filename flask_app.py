@@ -1,14 +1,14 @@
-
 from flask import Flask, request, url_for, render_template, abort
-import random
 import ConfigParser
 from flask.ext.bootstrap import Bootstrap
 import os
 import os.path
+from secret_key import secret_key
+from drtc import DRTCController
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
-app.secret_key = 'This is really unique and secret'
+app.secret_key = secret_key
 
 class IndexController(object):
 
@@ -33,12 +33,6 @@ class IndexController(object):
     def eriu(self):
         return render_template('eriu.html')
 
-    def drtc(self):
-        return render_template('DRTC/drtc.html')
-
-    def drtc_page(self, filename):
-        return render_template('DRTC/' + filename + '.html')
-
     def shutdown_server(self):
         func = request.environ.get('werkzeug.server.shutdown')
         if func is None:
@@ -52,10 +46,12 @@ class IndexController(object):
         return self.index()
 
 c = IndexController()
+d = DRTCController()
 
 @app.before_first_request
 def config_read():
     c.readConfig()
+    d.readConfig()
 
 @app.route('/')
 def index():
@@ -73,17 +69,13 @@ def resume():
 def eriu():
     return c.eriu()
 
-@app.route('/barracuda-site-verification-2d21942148aa9505b3db97c56407de97.html')
-def verification():
-    return '2d21942148aa9505b3db97c56407de97', 200
-
 @app.route('/drtc')
 def drtc():
-    return c.drtc()
+    return d.drtc()
 
 @app.route('/drtc/<filename>')
 def drtc_page(filename):
-    return c.drtc_page(filename)
+    return d.drtc_page(filename)
 
 @app.errorhandler(404) 
 def page_not_found(e):
