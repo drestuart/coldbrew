@@ -4,7 +4,7 @@ from flask.ext.bootstrap import Bootstrap
 import os
 import os.path
 from secret_key import secret_key
-from drtc import DRTCController
+import drtc
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
@@ -46,12 +46,14 @@ class IndexController(object):
         return self.index()
 
 c = IndexController()
-d = DRTCController()
+d = drtc.DRTCController()
 
 @app.before_first_request
 def config_read():
     c.readConfig()
     d.readConfig()
+
+# Main Site
 
 @app.route('/')
 def index():
@@ -69,9 +71,18 @@ def resume():
 def eriu():
     return c.eriu()
 
+# DRTC
+
 @app.route('/drtc')
 def drtc():
     return d.drtc()
+
+@app.route('/drtc/profile', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        return d.new_profile()
+    else:
+        return d.profile_page()
 
 @app.route('/drtc/<filename>')
 def drtc_page(filename):

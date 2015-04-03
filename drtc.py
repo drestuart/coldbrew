@@ -1,7 +1,7 @@
 import ConfigParser
 import os
 import os.path
-from flask import Flask, request, url_for, render_template, abort
+from flask import Flask, request, url_for, render_template, abort, redirect
 
 class DRTCController(object):
 
@@ -20,3 +20,12 @@ class DRTCController(object):
     def drtc_page(self, filename):
         return render_template('DRTC/' + filename + '.html')
 
+    def new_profile(self):
+        from flask_app import app
+        app.logger.warning(request.form)
+        # return redirect('/drtc')
+        return 'Got it!'
+
+    def profile_page(self):
+        print 'GET'
+        return redirect('/drtc')
