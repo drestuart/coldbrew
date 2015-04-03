@@ -1,94 +1,64 @@
-from flask import Flask, request, url_for, render_template, abort
+from flask import Flask, request, render_template
+from flask.ext.sqlalchemy import SQLAlchemy
 import ConfigParser
 from flask.ext.bootstrap import Bootstrap
 import os
 import os.path
 from secret_key import secret_key
-import drtc
+import drtc as drtc_controller
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 app.secret_key = secret_key
 
-class IndexController(object):
+# Read config file
+config = ConfigParser.SafeConfigParser()
+filepath = os.path.join(os.getcwd(), 'coldbrew.cfg')
+config.read(filepath)
 
-    def __init__(self):
-        self.config = None
-
-    def readConfig(self):
-        if not self.config:
-            self.config = ConfigParser.SafeConfigParser()
-            self.filepath = os.path.join(os.getcwd(), 'coldbrew.cfg')
-            self.config.read(self.filepath)
-
-    def index(self):
-        return render_template('index.html')
-
-    def about(self):
-        return render_template('about.html')
-
-    def resume(self):
-        return render_template('resume.html')
-
-    def eriu(self):
-        return render_template('eriu.html')
-
-    def shutdown_server(self):
-        func = request.environ.get('werkzeug.server.shutdown')
-        if func is None:
-            raise RuntimeError('Not running with the Werkzeug Server')
-        func()
-
-    def shutdown(self):
-        if self.config.getboolean('Controls', 'shutdown'):
-            self.shutdown_server()
-            return 'Server shutting down...'
-        return self.index()
-
-c = IndexController()
-d = drtc.DRTCController()
-
-@app.before_first_request
-def config_read():
-    c.readConfig()
-    d.readConfig()
+# Database setup
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://' + config.get('Database', 'username') + ':' \
+    + config.get('Database', 'password') + '@' + config.get('Database', 'hostname') \
+    + '/' + config.get('Database', 'database')
+app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+db = SQLAlchemy(app)
 
 # Main Site
 
 @app.route('/')
 def index():
-    return c.index()
+    return render_template('index.html')
 
 @app.route('/about')
 def about():
-    return c.about()
+    return render_template('about.html')
 
 @app.route('/resume')
 def resume():
-    return c.resume()
+    return render_template('resume.html')
 
 @app.route('/eriu')
 def eriu():
-    return c.eriu()
+    return render_template('eriu.html')
 
 # DRTC
 
 @app.route('/drtc')
 def drtc():
-    return d.drtc()
+    return drtc_controller.drtc()
 
 @app.route('/drtc/profile', methods=['GET', 'POST'])
-def login():
+def profile():
     if request.method == 'POST':
-        return d.new_profile()
+        return drtc_controller.new_profile()
     else:
-        return d.profile_page()
+        return drtc_controller.profile_page()
 
 @app.route('/drtc/<filename>')
 def drtc_page(filename):
-    return d.drtc_page(filename)
+    return drtc_controller.drtc_page(filename)
 
-@app.errorhandler(404) 
+@app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
 
@@ -98,7 +68,16 @@ def internal_server_error(e):
 
 @app.route('/shutdown', methods=['GET'])
 def shutdown():
-    return c.shutdown()
+    if config.getboolean('Controls', 'shutdown'):
+        shutdown_server()
+        return 'Server shutting down...'
+    return index()
+
+def shutdown_server():
+    func = request.environ.get('werkzeug.server.shutdown')
+    if func is None:
+        raise RuntimeError('Not running with the Werkzeug Server')
+    func()
 
 # GNU Terry Pratchett
 @app.after_request
