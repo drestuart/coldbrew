@@ -86,4 +86,4 @@ def gnu_terry_pratchett(resp):
     return resp
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=config.getboolean('Controls', 'debug'))
