@@ -77,7 +77,7 @@ def drtc():
 def drtc_page(filename):
     return d.drtc_page(filename)
 
-@app.errorhandler(404) 
+@app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
 
@@ -96,4 +96,5 @@ def gnu_terry_pratchett(resp):
     return resp
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=config.getboolean('Controls', 'debug'))
+
