@@ -1,0 +1,94 @@
+{% extends "coldbrew_base.html" %}
+
+{% block metas %}
+{{ super() }}
+<meta property="og:title" content="Don't Read The Comments!"/>
+<meta property="og:description" content="Don't Read The Comments!" />
+<meta property="og:url" content="http://www.coldbrewsoftware.com/drtc" />
+<meta property="og:image" content="http://www.coldbrewsoftware.com/static/img/DRTC/logo_drtc.png" />
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+{% endblock %}
+
+{% block title %}Don't Read The Comments! &mdash; Coldbrew Software{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+	<img class="full_width" src="{{ url_for('static', filename='img/DRTC/pro-tile-marquee-2.png') }}">
+</div>
+
+<div class="page-body">
+	<form>
+		<table id="profile">
+			<tr>
+				<td>
+					<label for="domain">Domain</label>
+				</td>
+				<td>
+					<input type="text" id="domain" name="domain">
+				</td>
+				<td>
+					<span class="contextual_help" title="Which site your browser is on, e.g. google.com">[?]</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="section_selector">Section Selector</label>
+				</td>
+				<td>
+					<input type="text" id="section_selector" name="section_selector">
+				</td>
+				<td>
+					<span class="contextual_help" title="CSS selector for comment section">[?]</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="comment_selector">Comment Selector</label>
+				</td>
+				<td>
+					<input type="text" id="comment_selector" name="comment_selector">
+				</td>
+				<td>
+					<span class="contextual_help" title="CSS selector for individual comments">[?]</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="template">Template</label>
+				</td>
+				<td>
+					<input type="text" id="template" name="template">
+				</td>
+				<td>
+					<span class="contextual_help" title="Pre-defined comment system template">[?]</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="category">Category</label>
+				</td>
+				<td>
+					<input type="text" id="category" name="category">
+				</td>
+				<td>
+					<span class="contextual_help" title="Profile category">[?]</span>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" id="submit" value="submit"></td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<p id="message"></p>
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>
+{% endblock %}
