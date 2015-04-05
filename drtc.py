@@ -1,5 +1,5 @@
 from flask import request, render_template, redirect
-from flask_app import Profile
+import flask_app
 
 def drtc():
     return render_template('DRTC/drtc.html')
@@ -9,7 +9,7 @@ def drtc_page(filename):
 
 def new_profile():
     try:
-        profile = Profile(**request.form)
+        profile = flask_app.Profile(**request.form)
         profile.save()
         return 'Got it!'
     except:
