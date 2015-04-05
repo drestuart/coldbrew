@@ -1,27 +1,50 @@
 from flask import Flask, request, render_template
 from flask.ext.sqlalchemy import SQLAlchemy
-import ConfigParser
 from flask.ext.bootstrap import Bootstrap
+import ConfigParser
 import os
 import os.path
 from secret_key import secret_key
-import drtc as drtc_controller
-
-app = Flask(__name__)
-bootstrap = Bootstrap(app)
-app.secret_key = secret_key
 
 # Read config file
 config = ConfigParser.SafeConfigParser()
 filepath = os.path.join(os.getcwd(), 'coldbrew.cfg')
 config.read(filepath)
 
+app = Flask(__name__)
+app.secret_key = secret_key
+bootstrap = Bootstrap(app)
+
 # Database setup
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://' + config.get('Database', 'username') + ':' \
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://' + config.get('Database', 'username') + ':' \
     + config.get('Database', 'password') + '@' + config.get('Database', 'hostname') \
     + '/' + config.get('Database', 'database')
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 db = SQLAlchemy(app)
+
+# Import controllers and models
+import drtc as drtc_controller
+
+class Profile(db.Model):
+    __tablename__ = 'drtc_profiles'
+
+    id = db.Column(db.Integer, primary_key=True)
+    domain = db.Column(db.String(255), nullable=False)
+    section_selector = db.Column(db.String(255), nullable=False)
+    comment_selector = db.Column(db.String(255), nullable=False)
+    template = db.Column(db.String(255), nullable=True, default='')
+    category = db.Column(db.String(255), nullable=True, default='')
+
+    def __init__(self, **kwargs):
+        self.domain = kwargs['domain']
+        self.section_selector = kwargs['section_selector']
+        self.comment_selector = kwargs['comment_selector']
+        self.template = kwargs.get('template', '')
+        self.category = kwargs.get('category', '')
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
 
 # Main Site
 
@@ -86,4 +109,8 @@ def gnu_terry_pratchett(resp):
     return resp
 
 if __name__ == '__main__':
+    # Create DB tables
+    db.create_all()
+    db.session.commit()
+
     app.run(debug=config.getboolean('Controls', 'debug'))
