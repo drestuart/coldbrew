@@ -1,4 +1,4 @@
-from flask import request, render_template, redirect
+from flask import request, render_template
 import flask_app
 
 def drtc():
@@ -10,9 +10,13 @@ def drtc_page(filename):
 def new_profile():
     try:
         profile = flask_app.Profile(**request.form)
-        profile.save()
-        return 'Got it!'
-    except:
+        result = profile.save()
+        if result['valid']:
+            return 'Got it!'
+        else:
+            return result['message']
+    except Exception as e:
+        print e
         return 'Some shit happened'
 
 def profile_page():

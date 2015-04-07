@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.bootstrap import Bootstrap
+import datetime
 import ConfigParser
 import os
 import os.path
@@ -27,6 +28,7 @@ import drtc as drtc_controller
 
 class Profile(db.Model):
     __tablename__ = 'drtc_profiles'
+    __table_args__ = {'extend_existing': True}
 
     id = db.Column(db.Integer, primary_key=True)
     domain = db.Column(db.String(255), nullable=False)
@@ -34,17 +36,40 @@ class Profile(db.Model):
     comment_selector = db.Column(db.String(255), nullable=False)
     template = db.Column(db.String(255), nullable=True, default='')
     category = db.Column(db.String(255), nullable=True, default='')
+    created_date = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    imported = db.Column(db.Boolean, default=False)
 
     def __init__(self, **kwargs):
-        self.domain = kwargs['domain']
-        self.section_selector = kwargs['section_selector']
-        self.comment_selector = kwargs['comment_selector']
-        self.template = kwargs.get('template', '')
-        self.category = kwargs.get('category', '')
+        self.domain = kwargs['domain'][0]
+        self.section_selector = kwargs['section_selector'][0]
+        self.comment_selector = kwargs['comment_selector'][0]
+        self.template = kwargs.get('template', '')[0]
+        self.category = kwargs.get('category', '')[0]
 
     def save(self):
-        db.session.add(self)
-        db.session.commit()
+        result = self.valid()
+        if result['valid']:
+            db.session.add(self)
+            db.session.commit()
+
+        return result
+
+    def valid(self):
+        result = { "valid": (len(self.domain) > 0) \
+                    and (len(self.section_selector) > 0) \
+                    and (len(self.comment_selector) > 0),
+                    "message" : ""}
+
+        if len(self.domain) == 0:
+            result['message'] += "Domain field is empty. "
+
+        if len(self.section_selector) == 0:
+            result['message'] += "Section selector field is empty. "
+
+        if len(self.comment_selector) == 0:
+            result['message'] += "Comment selector field is empty."
+
+        return result
 
 # Main Site
 
