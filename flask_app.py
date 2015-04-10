@@ -49,10 +49,21 @@ class Profile(db.Model):
     def save(self):
         result = self.valid()
         if result['valid']:
-            db.session.add(self)
-            db.session.commit()
-
-        return result
+            attempts = 0
+            succeeded = False
+            while attempts < 5:
+                attempts += 1
+                try:
+                    db.session.add(self)
+                    db.session.commit()
+                    succeeded = True
+                except StandardError, ex:
+                    if ex.args[0] in (2006, 2013, 2055):
+                        continue
+                break
+        if succeeded:
+            return result
+        return {'valid' : False, 'error' : 'Database error, please try again later'}
 
     def valid(self):
         result = { "valid": True,
