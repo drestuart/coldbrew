@@ -55,18 +55,19 @@ class Profile(db.Model):
         return result
 
     def valid(self):
-        result = { "valid": (len(self.domain) > 0) \
-                    and (len(self.section_selector) > 0) \
-                    and (len(self.comment_selector) > 0),
+        result = { "valid": True,
                     "message" : ""}
 
         if len(self.domain) == 0:
+            result['valid'] = False
             result['message'] += "Domain field is empty. "
 
         if len(self.section_selector) == 0:
+            result['valid'] = False
             result['message'] += "Section selector field is empty. "
 
         if len(self.comment_selector) == 0:
+            result['valid'] = False
             result['message'] += "Comment selector field is empty."
 
         return result

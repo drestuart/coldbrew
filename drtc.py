@@ -1,5 +1,6 @@
 from flask import request, render_template
 import flask_app
+import logging
 
 def drtc():
     return render_template('DRTC/drtc.html')
@@ -16,7 +17,7 @@ def new_profile():
         else:
             return result['message']
     except Exception as e:
-        print e
+        logging.warning(e)
         return 'Some shit happened'
 
 def profile_page():
