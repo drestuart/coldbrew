@@ -12,7 +12,7 @@ def new_profile():
     profile = flask_app.Profile(**request.form)
     result = profile.save()
     if result['valid']:
-        return 'Got it!'
+        return 'Your profile will be reviewed for a future release. Thanks!'
     else:
         return result['message']
 
