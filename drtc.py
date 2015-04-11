@@ -5,8 +5,8 @@ import logging
 def drtc():
     return render_template('DRTC/drtc.html')
 
-def drtc_page(filename):
-    return render_template('DRTC/' + filename + '.html')
+def drtc_profile_tutorial():
+    return render_template('DRTC/profile_tutorial.html')
 
 def new_profile():
     profile = flask_app.Profile(**request.form)
@@ -16,5 +16,12 @@ def new_profile():
     else:
         return result['message']
 
-def profile_page():
-    return render_template('DRTC/profile.html')
+def list_profiles():
+	profiles = flask_app.Profile.query.filter_by(imported=False).all()
+	profiles_json = []
+
+	for p in profiles:
+		profiles_json.append(p.json())
+
+	return render_template('DRTC/profile_list.html', profiles=profiles_json)
+
