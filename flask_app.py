@@ -120,8 +120,6 @@ def drtc():
 def profile():
 	return drtc_controller.new_profile()
 
-<<<<<<< HEAD
-=======
 @app.route('/drtc/profile_tutorial')
 def drtc_profile_tutorial():
 	return drtc_controller.drtc_profile_tutorial()
@@ -130,7 +128,6 @@ def drtc_profile_tutorial():
 def drtc_list_profiles():
 	return drtc_controller.list_profiles()
 
->>>>>>> master
 @app.errorhandler(404)
 def page_not_found(e):
 	return render_template('404.html'), 404
