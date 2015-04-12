@@ -1,22 +1,27 @@
-import ConfigParser
-import os
-import os.path
-from flask import Flask, request, url_for, render_template, abort
+from flask import request, render_template
+import flask_app
+import logging
 
-class DRTCController(object):
+def drtc():
+    return render_template('DRTC/drtc.html')
 
-    def __init__(self):
-        self.config = None
+def drtc_profile_tutorial():
+    return render_template('DRTC/profile_tutorial.html')
 
-    def readConfig(self):
-        if not self.config:
-            self.config = ConfigParser.SafeConfigParser()
-            self.filepath = os.path.join(os.getcwd(), 'coldbrew.cfg')
-            self.config.read(self.filepath)
+def new_profile():
+    profile = flask_app.Profile(**request.form)
+    result = profile.save()
+    if result['valid']:
+        return 'Your profile will be reviewed for a future release. Thanks!'
+    else:
+        return result['message']
 
-    def drtc(self):
-        return render_template('DRTC/drtc.html')
+def list_profiles():
+	profiles = flask_app.Profile.query.filter_by(imported=False).all()
+	profiles_json = []
 
-    def drtc_page(self, filename):
-        return render_template('DRTC/' + filename + '.html')
+	for p in profiles:
+		profiles_json.append(p.json())
+
+	return render_template('DRTC/profile_list.html', profiles=profiles_json)
 
