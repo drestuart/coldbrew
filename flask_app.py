@@ -49,12 +49,12 @@ class Profile(db.Model):
 
 	def json(self):
 		return json.dumps({
-            'domain' : self.domain,
-            'section_selector' : self.section_selector,
-            'comment_selector' : self.comment_selector,
-            'template' : self.template,
-            'category' : self.category
-        }, sort_keys=False)
+			'domain' : self.domain,
+			'section_selector' : self.section_selector,
+			'comment_selector' : self.comment_selector,
+			'template' : self.template,
+			'category' : self.category
+		}, sort_keys=False)
 
 	def save(self):
 		result = self.valid()
@@ -119,6 +119,10 @@ def drtc():
 @app.route('/drtc/profile', methods=['POST'])
 def profile():
 	return drtc_controller.new_profile()
+
+@app.route('/drtc/help')
+def drtc_help():
+	return drtc_controller.drtc_help()
 
 @app.route('/drtc/profile_tutorial')
 def drtc_profile_tutorial():
