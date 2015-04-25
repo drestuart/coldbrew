@@ -35,8 +35,9 @@
 		<img class="center" src="{{ url_for('static', filename='img/DRTC/firefox/page_action_not_enabled.png') }}">
 		<p>When DRTC! does not have a website profile matching the current page, it will show this message. You can click on "Enable" to start creating a profile.</p>
 		<img class="center" src="{{ url_for('static', filename='img/DRTC/firefox/page_action_new.png') }}">
-		<p>The action button dialog automatically fills in the site's domain. From here, you can fill in the comment section and/or comment selectors, or choose a <a href="#template_section">comment system template</a> to use. (See <a href="#profile_section">below</a> for more on creating a website profile.) You can also chose a category for this site with the <strong>Category</strong> menu. The <strong>Upload</strong> button (if available) will send the website profile to coldbrewsoftware.com to be included in a future update of DRTC! so that others can use it too! Clicking <strong>Save</strong> will save your profile and reload the page, so that DRTC! can apply the new profile.</p>
-		<p>You can also use <strong>Show Me The Comments!</strong> to immediately disable DRTC! on the current site.</p>
+		<p>The action button dialog automatically fills in the site's domain. From here, you can fill in the comment section and/or comment selectors, or choose a <a href="#template_section">comment system template</a> to use. (See <a href="#profile_section">below</a> for more on creating a website profile.) You can also chose a category for this site with the <strong>Category</strong> menu.</p>
+		<p id="upload">The <strong>Upload</strong> button (if available) will send the website profile to coldbrewsoftware.com to be included in a future update of DRTC! so that others can use it too! Clicking <strong>Save</strong> will save your profile and reload the page, so that DRTC! can apply the new profile.</p>
+		<p id="show_me">You can also use <strong>Show Me The Comments!</strong> to immediately disable DRTC! on the current site.</p>
 	</div>
 
 	<div id="options_section" class="section-head">
@@ -63,25 +64,25 @@
 		<img class="center" src="{{ url_for('static', filename='img/DRTC/firefox/profiles_table.png') }}">
 		<br>
 		<img class="center" src="{{ url_for('static', filename='img/DRTC/firefox/edit_profile_modal.png') }}">
-		<h3>Domain</h3>
+		<h3 id="domain">Domain</h3>
 		<p>DRTC! determines which site your browser is on by using the domain part of the currently displayed page's URL. For example, if you're on <a href="http://www.bbc.com/news/">http://www.bbc.com/news</a>, the domain is <i>bbc.com</i>.</p>
 		<p>Each DRTC! profile has a domain parameter which determines which pages it will be applied to. A profile with the domain <i>bbc.com</i>, for example, will apply to any page with a URL beginning with <i>bbc.com</i>, but not <i>bbc.co.uk</i>.</p>
 		<p>DRTC! profiles can also use wildcards (*) in their domains to match multiple domains. For example, <i>bbc.co*</i> would match <i>bbc.com</i> and <i>bbc.co.uk</i>.</p>
 		<p>As a final example, DRTC! also ignores subdomains when looking for a matching profile. So, a profile with <i>bbc.com</i> would also match <i>shop.bbc.com</i>.</p>
-		<h3>Mode</h3>
+		<h3 id="mode">Mode</h3>
 		<p>DRTC! operates in one of three modes, which can be set per profile.</p>
 		<ul>
 			<li><strong>All</strong> mode blocks the entire comment section at once.</li>
 			<li><strong>Individual</strong> mode blocks comments individually, based on the <a href="#options_section">comment severity threshold</a>.</li>
 			<li><strong>Disabled</strong> mode causes DRTC! to not block anything at all.</li>
 		</ul>
-		<h3>Section and Comment Selectors</h3>
+		<h3 id="selectors">Section and Comment Selectors</h3>
 		<p>DRTC! profiles use CSS selectors to tell it which page elements to block. The section selector specifies the entire comment section on the page, while the comment selector specifies individual comments. Only one of these selectors is needed at a time: a section selector is required for <strong>All</strong> mode, and a comment selector for <strong>Individual</strong> mode.</p>
 		<p>DRTC! supports all standard selector syntax, including <i>#</i> for ids, <i>.</i> for classes, and <i>,</i> to join multiple selectors.</p>
 		<p>Learn more about using CSS selectors <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Selectors" target="_blank">here</a>.
-		<h3>Template</h3>
+		<h3 id="template">Template</h3>
 		<p>Because many websites use third-party comment systems, such as Disqus or Facebook, DRTC! defines <a href="#template_section">common templates</a> for these systems. These templates can be applied to the profile of a page using one of these systems to block the comments in one step.</p>
-		<h3>Category</h3>
+		<h3 id="category">Category</h3>
 		<p>Categories (such as <strong>World News</strong> and <strong>Technology</strong>) are used mainly on the options page to keep website profiles organized in manageable chunks. Profiles can be meved between categories by dragging and dropping them. You can also use the mode buttons at the bottom of each category table to set the mode for all profiles in that category.</p>
 		<p>Clicking the <strong>+ Category</strong> button creates a new category table to add profiles to, and the button with the pencil icon let you edit the category name.</p>
 	</div>
