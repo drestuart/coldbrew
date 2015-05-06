@@ -1,20 +1,6 @@
-{% extends "coldbrew_base.html" %}
+{% extends "DRTC/drtc_base.html" %}
 
-{% block metas %}
-{{ super() }}
-<meta property="og:title" content="Don't Read The Comments!"/>
-<meta property="og:description" content="Don't Read The Comments!" />
-<meta property="og:url" content="http://www.coldbrewsoftware.com/drtc" />
-<meta property="og:image" content="http://www.coldbrewsoftware.com/static/img/DRTC/logo_drtc.png" />
-{% endblock %}
-
-{% block title %}Don't Read The Comments! &mdash; Coldbrew Software{% endblock %}
-
-{% block page_content %}
-<div class="page-header">
-	<img class="full_width" src="{{ url_for('static', filename='img/DRTC/pro-tile-marquee-2.png') }}">
-</div>
-<div class="page-body">
+{% block drtc_content %}
 	<h1>Creating a DRTC! Website Profile</h1>
 	<p>Creating a new website profile is not overly complicated, but requires using some of Firefox's developer tools.</p>
 	<ul class="dot">
@@ -61,6 +47,5 @@
 	<ul class="dot">
 		<li>When you're done, you can use the <strong>Upload</strong> button to send your new website profile to coldbrewsoftware.com to be added to a future update of DRTC! so that others can use it too!</li>
 	</ul>
-</div>
 {% endblock %}
 

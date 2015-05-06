@@ -1,20 +1,6 @@
-{% extends "coldbrew_base.html" %}
+{% extends "DRTC/drtc_base.html" %}
 
-{% block metas %}
-{{ super() }}
-<meta property="og:title" content="Don't Read The Comments!"/>
-<meta property="og:description" content="Don't Read The Comments!" />
-<meta property="og:url" content="http://www.coldbrewsoftware.com/drtc" />
-<meta property="og:image" content="http://www.coldbrewsoftware.com/static/img/DRTC/logo_drtc.png" />
-{% endblock %}
-
-{% block title %}Don't Read The Comments! &mdash; Coldbrew Software{% endblock %}
-
-{% block page_content %}
-<div class="page-header">
-	<img class="full_width" src="{{ url_for('static', filename='img/DRTC/pro-tile-marquee-2.png') }}">
-</div>
-<div class="page-body">
+{% block drtc_content %}
 	<h1>Don't Read the Comments! Help</h1>
 	<p>This page will tell you in more detail about DRTC!'s features and capabilities. To learn how to create custom profiles for websites DRTC! doesn't know about yet, check out the <a href="profile_tutorial" target="_blank">profile tutorial</a>.</p>
 
@@ -94,6 +80,5 @@
 		<img class="center" src="{{ url_for('static', filename='img/DRTC/firefox/templates_table.png') }}">
 		<p>Comment system templates are similar to profiles, in that they define a pair of section and comment selectors. When applied to a website profile, a template sets the profiles selectors to match its own.	A template's selectors, as well as its name, can be edited just like a profile.</p>
 	</div>
-</div>
 {% endblock %}
 
