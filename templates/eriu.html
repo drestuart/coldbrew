@@ -1,11 +1,20 @@
 {% extends "coldbrew_base.html" %}
 
-{% block metas %}
-{{ super() }}
-<meta property="og:title" content="Chronicles of Ériu"/>
-<meta property="og:description" content="Chronicles of Ériu is an in-development indie roguelike set in ancient Ireland." />
-<meta property="og:url" content="http://www.coldbrewsoftware.com/eriu" />
-<meta property="og:image" content="http://www.coldbrewsoftware.com/static/img/eriu_avatar.png" />
+{% block twitter_og %}
+<!-- Facebook OpenGraph metadata -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Chronicles of Ériu"/>
+<meta property="og:description" content="Chronicles of Ériu is an in-development indie roguelike set in ancient Ireland"/>
+<meta property="og:url" content="http://www.coldbrewsoftware.com/eriu"/>
+<meta property="og:image" content="http://www.coldbrewsoftware.com/static/img/eriu.png"/>
+
+<!-- Twitter card metadata -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@drestuart"/>
+<meta name="twitter:creator" content="@drestuart"/>
+<meta name="twitter:description" content="Chronicles of Ériu is an in-development indie roguelike set in ancient Ireland"/>
+<meta name="twitter:image" content="http://www.coldbrewsoftware.com/static/img/eriu.png"/>
+<meta name="twitter:url" content="http://www.coldbrewsoftware.com/eriu"/>
 {% endblock %}
 
 {% block title %}Chronicles of Ériu &mdash; Coldbrew Software{% endblock %}
