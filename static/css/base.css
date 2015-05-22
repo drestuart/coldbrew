@@ -123,11 +123,12 @@ ul.navbar-nav li:hover {
 	border-bottom: 1px solid rgba(0,0,0,0);
 }
 
-a.nav-link {
+.navbar-nav>li>a.nav-link {
 	font-size: 16px;
+	padding: 15px 0;
 }
 
-a.nav-link.current {
+.navbar-nav>li>a.nav-link.current {
 	font-size: 20px;
 }
 
