@@ -137,7 +137,7 @@ div.footer {
 	border-top: 1px solid black;
 	padding: 10px;
 	width: 100%;
-	margin: 30px 0 0 0;
+	margin: 10px 0 0 0;
 	border-radius: 0 0 25px 25px;
 	text-align: center;
 	clear: both;
@@ -201,4 +201,8 @@ div.sm_icons a img {
 
 div.sm_icons a:hover img {
 	opacity: 1;
+}
+
+hr {
+    border-top: 1px solid #aaa;
 }
