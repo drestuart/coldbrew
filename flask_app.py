@@ -124,6 +124,10 @@ def profile():
 def drtc_help():
 	return drtc_controller.drtc_help()
 
+@app.route('/drtc/donate')
+def drtc_donate():
+	return drtc_controller.drtc_donate()
+
 @app.route('/drtc/profile_tutorial')
 def drtc_profile_tutorial():
 	return drtc_controller.drtc_profile_tutorial()

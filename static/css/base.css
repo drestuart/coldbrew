@@ -143,7 +143,7 @@ div.footer {
 	clear: both;
 }
 
-img {
+img:not(.noborder) {
 	border: 1px solid black;
 }
 
@@ -205,4 +205,9 @@ div.sm_icons a:hover img {
 
 hr {
     border-top: 1px solid #aaa;
+}
+
+#paypal {
+    text-align: center;
+    margin: 10px;
 }

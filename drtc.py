@@ -13,6 +13,9 @@ def drtc_help():
 	else:
 		return render_template('DRTC/help_chrome.html')
 
+def drtc_donate():
+    return render_template('DRTC/donate.html')
+
 def drtc_profile_tutorial():
 	user_agent = request.headers.get('User-Agent')
 
