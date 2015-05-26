@@ -46,7 +46,7 @@
             </button>
             <a class="navbar-brand nav-link" href="/">Home</a>
         </div>
-        <div class="navbar-collapse collapse">
+        <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a class="nav-link" target="_blank" href="http://blog.coldbrewsoftware.com">Blog</a></li>
                 <li><a class="nav-link" href="{{ url_for('drtc') }}">DRTC!</a></li>
@@ -54,6 +54,7 @@
                 <li><a class="nav-link" href="{{ url_for('about') }}">About Me</a></li>
             </ul>
         </div>
+        {% block subnav %}{% endblock %}
     </div>
 </div>
 {% endblock %}

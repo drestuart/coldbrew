@@ -19,6 +19,17 @@
 
 {% block title %}Don't Read The Comments! &mdash; Coldbrew Software{% endblock %}
 
+<!-- DRTC! subnav -->
+{% block subnav %}
+    <div id="subnavbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li><a class="nav-link" href="/drtc/help">Help</a></li>
+            <li><a class="nav-link" href="/drtc/profile_tutorial">Profiles</a></li>
+            <li><a class="nav-link" href="/drtc/donate">Donate</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
 {% block page_content %}
 <div class="page-header">
 	<img class="full_width" src="{{ url_for('static', filename='img/DRTC/pro-tile-marquee-2.png') }}">
