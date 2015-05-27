@@ -212,8 +212,8 @@ img.center {
 }
 
 img.full_width {
-	width: 100%;
-	margin: 20px auto;
+    width: 90%;
+    margin: 20px 5%;
 }
 
 div.sm_icons {
