@@ -1,15 +1,12 @@
-{% extends "bootstrap/base.html" %}
-{% import "bootstrap/google.html" as google %}
+
 
 {% block scripts %}
-    {{super()}}
-    {{google.analytics(account="UA-50706127-1")}}
+<!--google.analytics(account="UA-50706127-1")-->
 {% endblock %}
 
 {% block title %}Coldbrew Software{% endblock %}
 
 {% block head %}
-{{ super() }}
 <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
 <!-- barracuda domain verification --> <meta name="barracuda-site-verification" content="115820a809b0d7d846fbaa0e1412aa64" />
 {% block twitter_og %}{% endblock %}
@@ -33,9 +30,10 @@
 {% endblock %}
 
 {% block styles %}
-{{ super() }}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
 {% endblock %}
+
+{% block navbar %}{% endblock %}
 
 {% block content %}
 <div class="container page_content">

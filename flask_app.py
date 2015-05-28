@@ -1,6 +1,5 @@
 from flask import Flask, request, render_template
 from flask.ext.sqlalchemy import SQLAlchemy
-from flask.ext.bootstrap import Bootstrap
 import datetime
 import ConfigParser
 import os
@@ -15,7 +14,6 @@ config.read(filepath)
 
 app = Flask(__name__)
 app.secret_key = secret_key
-bootstrap = Bootstrap(app)
 
 # Database setup
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://' + config.get('Database', 'username') + ':' \
