@@ -4,9 +4,9 @@
 <!--google.analytics(account="UA-50706127-1")-->
 {% endblock %}
 
-{% block title %}Coldbrew Software{% endblock %}
 
 {% block head %}
+<title>{% block title %}Coldbrew Software{% endblock %}</title>
 <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
 <!-- barracuda domain verification --> <meta name="barracuda-site-verification" content="115820a809b0d7d846fbaa0e1412aa64" />
 {% block twitter_og %}{% endblock %}
