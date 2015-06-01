@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, send_from_directory
 from flask.ext.sqlalchemy import SQLAlchemy
 import datetime
 import ConfigParser
@@ -133,6 +133,11 @@ def drtc_profile_tutorial():
 @app.route('/drtc/list_profiles')
 def drtc_list_profiles():
 	return drtc_controller.list_profiles()
+
+# Send images for FB and Twitter previews
+@app.route('/static/img/<path:path>')
+def send_js(path):
+    return send_from_directory('static/img', path)
 
 @app.errorhandler(404)
 def page_not_found(e):
