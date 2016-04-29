@@ -1,4 +1,4 @@
 coldbrew
 ========
 
-Web application for Coldbrew Games, which is me.
+Web application for Coldbrew Software, which is me.
